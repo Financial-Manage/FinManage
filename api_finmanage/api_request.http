@@ -1,0 +1,17 @@
+### Criar Usuário (POST)
+POST http://localhost/fin_manage/api_finmanage/public/routes.php
+Content-Type: application/x-www-form-urlencoded
+
+action=createUser&username=lilian&email=lilian@example.com&name=lilian&lastname=Doe&password=password123
+
+### Atualizar Usuário (POST)
+POST http://localhost/fin_manage/api_finmanage/public/routes.php
+Content-Type: application/x-www-form-urlencoded
+
+action=updateUser&id=3&username=newusername&email=newemail@example.com&name=NewName&lastname=NewLastName&password=newpassword
+
+### Deletar Usuário (POST)
+POST http://localhost/fin_manage/api_finmanage/public/routes.php
+Content-Type: application/x-www-form-urlencoded
+
+action=deleteUser&id=2
