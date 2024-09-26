@@ -1,17 +1,40 @@
-### Criar Usuário (POST)
-POST http://localhost/fin_manage/api_finmanage/public/routes.php
-Content-Type: application/x-www-form-urlencoded
+POST http://localhost/fin_manage/api_finmanage/routes/incomeRoutes.php
+Content-Type: application/json
 
-action=createUser&username=lilian&email=lilian@example.com&name=lilian&lastname=Doe&password=password123
+{
+    "action": "createIncome",
+    "amount": 500,
+    "description": "Salário",
+    "date": "2024-09-09",
+    "users_id": 7,
+    "category_id": 1
+}
 
-### Atualizar Usuário (POST)
-POST http://localhost/fin_manage/api_finmanage/public/routes.php
-Content-Type: application/x-www-form-urlencoded
+###
+POST http://localhost/fin_manage/api_finmanage/routes/incomeRoutes.php
+Content-Type: application/json
 
-action=updateUser&id=3&username=newusername&email=newemail@example.com&name=NewName&lastname=NewLastName&password=newpassword
+{
+    "action": "updateIncome",
+    "id": 4,
+    "amount": 750,
+    "description": "Aluguel",
+    "category_id" : 1
+}
+###
+POST http://localhost/fin_manage/api_finmanage/routes/categoriesRoutes.php
+Content-Type: application/json
 
-### Deletar Usuário (POST)
-POST http://localhost/fin_manage/api_finmanage/public/routes.php
-Content-Type: application/x-www-form-urlencoded
+{
+    "action": "createCategory",
+    "name": "Freelancer",
+    "description": "Empresa talentum",
+    "type": "income",
+    "users_id": "10"
 
-action=deleteUser&id=2
+}
+
+###
+GET http://localhost/fin_manage/api_finmanage/routes/categoriesRoutes.php?type=income
+
+Content-Type: application/json
