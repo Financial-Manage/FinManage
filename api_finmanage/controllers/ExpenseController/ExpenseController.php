@@ -25,9 +25,9 @@ class ExpenseController {
     }
 
     public function getAllExpenses() {
-        $Expenses = $this->expenseDao->getAllExpenses();
-        if($Expenses) {
-            return $Expenses;
+        $expenses = $this->expenseDao->getAllExpenses();
+        if($expenses) {
+            return $expenses;
         } else {
             return ["status" => "error", "message" => "Nenhuma receita encontrada"];
         }
@@ -43,7 +43,7 @@ class ExpenseController {
         }
     }
 
-    public function updateExpense($id, $ExpenseData) {
+    public function updateExpense($id, $expenseData) {
         $expense = $this->expenseDao->getExpenseById($id);
         if(!$expense) {
             return ["status" => "error", "message" => "Receita não encontrada"];

@@ -95,6 +95,12 @@ class CategoryDAO implements CategoryDAOInterface {
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function checkBudgetAlert($budgetId) {
+        
+    }
+
 }
+
 
 ?>

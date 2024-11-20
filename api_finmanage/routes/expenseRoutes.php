@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         switch ($data["action"]) {
 
             case "createExpense":
-                if (empty($data["description"]) || empty($data["amount"]) || empty($data["date"])) {
+                if (empty($data["description"]) || empty($data["amount"]) || empty($data["category_id"])) {
                     $response = ["status" => "error", "message" => "Todos os campos são obrigatórios: nome, tipo, usuário."];
                 } else {
                     $response = $expenseController->createExpense($data);
@@ -42,12 +42,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         $response = ["status" => "error", "message" => "Dados de entrada inválidos."];
     }
-
 } elseif ($_SERVER["REQUEST_METHOD"] === "GET") {
     if(isset($_GET["id"])) {
         $response = $expenseController->getExpensebyId($_GET["id"]);
-    } elseif (isset($_GET["users_id"])) {
-        $reponse = $expenseController->getExpensesByUser($_GET["users_id"]);
+    } elseif (isset($_GET["users_id"])) { //verificar
+        $response = $expenseController->getExpensesByUser($_GET["users_id"]);
     } else {
         $response = $expenseController->getAllExpenses();
     }

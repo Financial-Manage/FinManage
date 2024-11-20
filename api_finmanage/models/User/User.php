@@ -41,6 +41,8 @@ interface UserDAOInterface {
     public function updateUser(User $user);
     public function deleteUser($id);
     public function isEmailRegistered($email);
+    public function getUserByEmail($email);
+    public function getUserByToken($token);
+    public function updateUserSession(User $user);
 }
 ?>
-

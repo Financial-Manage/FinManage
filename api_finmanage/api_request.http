@@ -11,15 +11,16 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost/fin_manage/api_finmanage/routes/incomeRoutes.php
+POST http://localhost/fin_manage/api_finmanage/routes/expenseRoutes.php
 Content-Type: application/json
 
 {
-    "action": "updateIncome",
-    "id": 4,
-    "amount": 750,
-    "description": "Aluguel",
-    "category_id" : 1
+    "id": 69,
+    "action": "updateExpense",
+    "amount": 395,
+    "description": "gaasolina",
+    "date": "2024-11-25",
+    "category_id" : 38
 }
 ###
 POST http://localhost/fin_manage/api_finmanage/routes/categoriesRoutes.php
@@ -38,3 +39,66 @@ Content-Type: application/json
 GET http://localhost/fin_manage/api_finmanage/routes/categoriesRoutes.php?type=income
 
 Content-Type: application/json
+###
+POST http://localhost/fin_manage/api_finmanage/routes/budgetsRoutes.php
+Content-Type: application/json
+
+{
+    "action": "createBudget",
+    "amount": 1900,
+    "category_id": 28,
+    "description": "Orçamento 1 lazer"
+}
+###
+POST http://localhost/fin_manage/api_finmanage/routes/budgetsRoutes.php
+Content-Type: application/json
+
+{
+    "action": "checkBudgetAlert",
+    "budget_id": 15
+}
+###
+POST http://localhost/fin_manage/api_finmanage/routes/notificationRoutes.php
+Content-Type: application/json
+
+{
+    "action": "createNotification",
+    "message": "Notificação teste",
+    "type": "test",
+    "status": "unread",
+    "budgets_id": 27,
+    "category_id": 36,
+    "transactions_id": 68
+}
+
+### Criar Usuário
+POST http://localhost/fin_manage/api_finmanage/routes/usersRoutes.php
+Content-Type: application/json
+
+{
+  "action": "register",
+  "username": "liptest",
+  "email": "test@example.com",
+  "name": "John",
+  "lastname": "Doe",
+  "password": "securepassword123"
+}
+
+### Fazer Login
+POST http://localhost/fin_manage/api_finmanage/routes/usersRoutes.php
+Content-Type: application/json
+
+{
+  "action": "login",
+  "email": "test@example.com",
+  "password": "securepassword123"
+}
+
+### Verificar Sessão
+POST http://localhost/fin_manage/api_finmanage/routes/usersRoutes.php
+Content-Type: application/json
+
+{
+  "action": "checkSession",
+  "sessionToken": "9b5167d87aafac8029cf473de81dcddc"
+}

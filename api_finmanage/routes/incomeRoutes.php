@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     if(isset($_GET["id"])) {
         $response = $incomeController->getIncomebyId($_GET["id"]);
     } elseif (isset($_GET["users_id"])) {
-        $reponse = $incomeController->getIncomesByUser($_GET["users_id"]);
+        $response = $incomeController->getIncomesByUser($_GET["users_id"]);
     } else {
         $response = $incomeController->getAllIncomes();
     }

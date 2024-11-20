@@ -66,7 +66,7 @@ class ExpenseDAO implements ExpenseDAOInterface
 
     public function updateExpense(Expense $expense) {
         $query = "UPDATE " . $this->table . " SET 
-        amount = :amount, description = :description, date = :date, type = :type, users_id = :users_id, category_id = :category_id 
+        amount = :amount, description = :description, date = :date, type = :type, category_id = :category_id 
         WHERE id = :id AND type = 'expense'";
         
         $stmt = $this->conn->prepare($query);
@@ -75,7 +75,7 @@ class ExpenseDAO implements ExpenseDAOInterface
         $stmt->bindParam(":description", $expense->description);
         $stmt->bindParam(":date", $expense->date);
         $stmt->bindParam(":type", $expense->type);
-        $stmt->bindParam(":users_id", $expense->userId);
+        // $stmt->bindParam(":users_id", $expense->userId);
         $stmt->bindParam(":category_id", $expense->categoryId);
 
         return $stmt->execute();
